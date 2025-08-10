@@ -1,2 +1,3 @@
-# Physical-Design-workshop
-Documentation of project
+# Digital VLSI SoC Design and Planning
+
+
