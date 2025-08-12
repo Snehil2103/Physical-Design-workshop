@@ -210,6 +210,65 @@ plot y vs time a
 
 <img width="1280" height="768" alt="Screenshot 2025-08-11 205243" src="https://github.com/user-attachments/assets/f76a4bcf-29a6-4228-a4e0-dc2ffe26c8c6" />
 
+From the above screenshot,
+
+  Rise Transition time = Time taken by output to rise to 80% - Time taken by output to rise to 20%
+
+  Rise Transition time = 2.23529 - 2.18289 = 0.05240 ns = 52.40 ps
+
+  Rise Cell delay = Time taken by output to rise to 50% - Time taken by input to fall to 50%
+
+  Rise Cell delay = 2.20726 - 2.14988 = 0.05738 ns = 57.38 ps
+
+5. Find problem in the DRC section of the old magic tech file for the skywater process and fix them.
+
+Commands to download and view the corrupted skywater process magic tech file and associated files to perform drc corrections
+
+```
+# Change to home directory
+cd
+
+# Command to download the lab files
+wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
+
+# Since lab file is compressed command to extract it
+tar xfz drc_tests.tgz
+
+# Change directory into the lab folder
+cd drc_tests
+
+# List all files and directories present in the current directory
+ls -al
+
+# Command to view .magicrc file
+gvim .magicrc
+
+# Command to open magic tool in better graphics
+magic -d XR &
+```
+
+<img width="1286" height="767" alt="Screenshot 2025-08-11 210038" src="https://github.com/user-attachments/assets/94035c62-2daa-46f8-b5c3-e417078375b4" />
+
+Incorrectly implemented poly.9 rule no drc violation even though spacing < 0.48u
+
+<img width="1031" height="544" alt="Screenshot 2025-08-11 210214" src="https://github.com/user-attachments/assets/893b5036-bd68-4521-aff9-c528ca0b6a46" />
+
+<img width="1033" height="546" alt="Screenshot 2025-08-11 210246" src="https://github.com/user-attachments/assets/b6d24050-a879-4498-becc-17004d098877" />
+
+New commands inserted in sky130A.tech file to update drc
+
+<img width="1280" height="765" alt="Screenshot 2025-08-11 211638" src="https://github.com/user-attachments/assets/2101c87d-3636-4c70-aa6f-7bd33d46bd04" />
+
+<img width="1035" height="563" alt="Screenshot 2025-08-11 211744" src="https://github.com/user-attachments/assets/2a22185a-41da-4c5b-9f8b-f5d5bb749019" />
+
+<img width="1036" height="559" alt="Screenshot 2025-08-11 211821" src="https://github.com/user-attachments/assets/9c194439-7155-4554-a336-19385daddc1c" />
+
+
+
+
+
+
+
 
 
 
