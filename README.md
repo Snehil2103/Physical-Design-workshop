@@ -268,16 +268,16 @@ Screenshot of magic window with rule implemented
 
 Day4 tasks:-
 
-  1.Fix up small DRC errors and verify the design is ready to be inserted into our flow.
-  2.Save the finalized layout with custom name and generate lef
-  3.Copy the newly generated lef and associated required lib files to 'picorv32a' design 'src' directory.
-  4.Edit 'config.tcl' to change lib file and add the new extra lef into the openlane flow.
-  5.Run openlane flow synthesis with newly inserted custom inverter cell.
-  6.Remove/reduce the newly introduced violations with the introduction of custom inverter cell by modifying design parameters.
-  7.Run floorplan and placement and verify the cell is accepted in PnR flow.
-  8.Do Post-Synthesis timing analysis with OpenSTA tool.
-  9.Perform Clock Tree Synthesis
-  10.Post-CTS OpenROAD timing analysis.
+  1. Fix up small DRC errors and verify the design is ready to be inserted into our flow.
+  2. Save the finalized layout with custom name and generate lef
+  3. Copy the newly generated lef and associated required lib files to 'picorv32a' design 'src' directory.
+  4. Edit 'config.tcl' to change lib file and add the new extra lef into the openlane flow.
+  5. Run openlane flow synthesis with newly inserted custom inverter cell.
+  6. Remove/reduce the newly introduced violations with the introduction of custom inverter cell by modifying design parameters.
+  7. Run floorplan and placement and verify the cell is accepted in PnR flow.
+  8. Do Post-Synthesis timing analysis with OpenSTA tool.
+  9. Perform Clock Tree Synthesis
+  10. Post-CTS OpenROAD timing analysis.
 
 1. Fix up small DRC errors and verify the design is ready to be inserted into our flow:
 
@@ -430,7 +430,7 @@ Commands to view and change parameters to improve timing and run synthesis
 
 ```
 # Now once again we have to prep design so as to update variables
-prep -design picorv32a -tag 24-03_10-03 -overwrite
+prep -design picorv32a -tag 12-08_05-42 -overwrite
 
 # Addiitional commands to include newly added lef to openlane flow merged.lef
 set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
@@ -589,10 +589,10 @@ Commands to be run in OpenLANE flow to do OpenROAD timing analysis with integrat
 openroad
 
 # Reading lef file
-read_lef /openLANE_flow/designs/picorv32a/runs/24-03_10-03/tmp/merged.lef
+read_lef /openLANE_flow/designs/picorv32a/runs/12-08_10-17/tmp/merged.lef
 
 # Reading def file
-read_def /openLANE_flow/designs/picorv32a/runs/24-03_10-03/results/cts/picorv32a.cts.def
+read_def /openLANE_flow/designs/picorv32a/runs/12-08_10-17/results/cts/picorv32a.cts.def
 
 # Creating an OpenROAD database to work with
 write_db pico_cts.db
@@ -601,7 +601,7 @@ write_db pico_cts.db
 read_db pico_cts.db
 
 # Read netlist post CTS
-read_verilog /openLANE_flow/designs/picorv32a/runs/24-03_10-03/results/synthesis/picorv32a.synthesis_cts.v
+read_verilog /openLANE_flow/designs/picorv32a/runs/12-08_10-17/results/synthesis/picorv32a.synthesis_cts.v
 
 # Read library for design
 read_liberty $::env(LIB_SYNTH_COMPLETE)
@@ -650,7 +650,7 @@ Commands to load PDN def in magic in another terminal
 
 ```
 # Change directory to path containing generated PDN def
-cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_08-45/tmp/floorplan/
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/12-08_10-17/tmp/floorplan/
 
 # Command to load the PDN def in magic tool
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read 14-pdn.def &
@@ -702,7 +702,7 @@ Commands for SPEF extraction using external tool
 cd Desktop/work/tools/SPEF_EXTRACTOR
 
 # Command extract spef
-python3 main.py /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_08-45/tmp/merged.lef /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_08-45/results/routing/picorv32a.def
+python3 main.py /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/12-08_10-17/tmp/merged.lef /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_08-45/results/routing/picorv32a.def
 ```
 
 4. Post-Route OpenSTA timing analysis with the extracted parasitics of the route.
@@ -714,10 +714,10 @@ Commands to be run in OpenLANE flow to do OpenROAD timing analysis with integrat
 openroad
 
 # Reading lef file
-read_lef /openLANE_flow/designs/picorv32a/runs/26-03_08-45/tmp/merged.lef
+read_lef /openLANE_flow/designs/picorv32a/runs/12-08_10-17/tmp/merged.lef
 
 # Reading def file
-read_def /openLANE_flow/designs/picorv32a/runs/26-03_08-45/results/routing/picorv32a.def
+read_def /openLANE_flow/designs/picorv32a/runs/12-08_10-17/results/routing/picorv32a.def
 
 # Creating an OpenROAD database to work with
 write_db pico_route.db
@@ -726,7 +726,7 @@ write_db pico_route.db
 read_db pico_route.db
 
 # Read netlist post CTS
-read_verilog /openLANE_flow/designs/picorv32a/runs/26-03_08-45/results/synthesis/picorv32a.synthesis_preroute.v
+read_verilog /openLANE_flow/designs/picorv32a/runs/12-08_10-17/results/synthesis/picorv32a.synthesis_preroute.v
 
 # Read library for design
 read_liberty $::env(LIB_SYNTH_COMPLETE)
@@ -741,7 +741,7 @@ read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
 set_propagated_clock [all_clocks]
 
 # Read SPEF
-read_spef /openLANE_flow/designs/picorv32a/runs/26-03_08-45/results/routing/picorv32a.spef
+read_spef /openLANE_flow/designs/picorv32a/runs/12-08_10-17/results/routing/picorv32a.spef
 
 # Generating custom timing report
 report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
