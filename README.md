@@ -7,9 +7,7 @@ Day1 Tasks:
   1. Run picorv32a design synthesis using OpenLANE flow and generate necessary outputs.
   2. Calculate the Flipflop ratio
 
-     Fliplop ratio = Number of D-Flipflops/Total number of cells
-
-1. Picorv32a design synthesis using OpenLANE
+1.Picorv32a design synthesis using OpenLANE
 
 Commands to invoke the OpenLANE flow to perform synthesis
 
@@ -271,18 +269,15 @@ Screenshot of magic window with rule implemented
 Day4 tasks:-
 
   1.Fix up small DRC errors and verify the design is ready to be inserted into our flow.
-  2.Save the finalized layout with custom name and open it.
-  3.Generate lef from the layout.
-  4.Copy the newly generated lef and associated required lib files to 'picorv32a' design 'src' directory.
-  5.Edit 'config.tcl' to change lib file and add the new extra lef into the openlane flow.
-  6.Run openlane flow synthesis with newly inserted custom inverter cell.
-  7.Remove/reduce the newly introduced violations with the introduction of custom inverter cell by modifying design parameters.
-  8.Once synthesis has accepted our custom inverter we can now run floorplan and placement and verify the cell is accepted in PnR flow.
-  9.Do Post-Synthesis timing analysis with OpenSTA tool.
-  10.Make timing ECO fixes to remove all violations.
-  11.Replace the old netlist with the new netlist generated after timing ECO fix and implement the floorplan, placement and cts.
-  12.Post-CTS OpenROAD timing analysis.
-  13.Explore post-CTS OpenROAD timing analysis by removing 'sky130_fd_sc_hd__clkbuf_1' cell from clock buffer list variable 'CTS_CLK_BUFFER_LI
+  2.Save the finalized layout with custom name and generate lef
+  3.Copy the newly generated lef and associated required lib files to 'picorv32a' design 'src' directory.
+  4.Edit 'config.tcl' to change lib file and add the new extra lef into the openlane flow.
+  5.Run openlane flow synthesis with newly inserted custom inverter cell.
+  6.Remove/reduce the newly introduced violations with the introduction of custom inverter cell by modifying design parameters.
+  7.Run floorplan and placement and verify the cell is accepted in PnR flow.
+  8.Do Post-Synthesis timing analysis with OpenSTA tool.
+  9.Perform Clock Tree Synthesis
+  10.Post-CTS OpenROAD timing analysis.
 
 1. Fix up small DRC errors and verify the design is ready to be inserted into our flow:
 
@@ -328,7 +323,7 @@ Condition 3 is verified
 
 <img width="1475" height="780" alt="Screenshot 2025-08-12 105646" src="https://github.com/user-attachments/assets/09c41a28-7d1c-4b85-b912-648fe9ba830e" />
 
-2. Save the finalized layout with custom name and open it:
+2. Save the finalized layout with custom name and generate lef:
 
 Command for tkcon window to save the layout with custom name
 
@@ -388,7 +383,7 @@ Edited config.tcl to include the added lef and change library to ones we added i
 
 <img width="1282" height="773" alt="Screenshot 2025-08-12 111112" src="https://github.com/user-attachments/assets/1c0998d3-12ae-4536-86e8-c0ff24abd0ed" />
 
-6. Run openlane flow synthesis with newly inserted custom inverter cell.
+5. Run openlane flow synthesis with newly inserted custom inverter cell.
 
 Commands to invoke the OpenLANE flow include new lef and perform synthesis
 
@@ -425,7 +420,7 @@ run_synthesis
 
 <img width="1283" height="768" alt="Screenshot 2025-08-12 111623" src="https://github.com/user-attachments/assets/a1b19aa4-5457-4755-b3e8-f40e909af948" />
 
-7. Remove/reduce the newly introduced violations with the introduction of custom inverter cell by modifying design parameters.
+6. Remove/reduce the newly introduced violations with the introduction of custom inverter cell by modifying design parameters.
 
 Noting down current design values generated before modifying parameters to improve timing
 
@@ -473,7 +468,7 @@ run_synthesis
 
 <img width="1278" height="756" alt="Screenshot 2025-08-12 113000" src="https://github.com/user-attachments/assets/59edf5e4-bdc7-43de-9a66-b74241eb341a" />
 
-8. Once synthesis has accepted our custom inverter we can now run floorplan and placement and verify the cell is accepted in PnR flow.
+7. Run floorplan and placement and verify the cell is accepted in PnR flow.
 
 Now that our custom inverter is properly accepted in synthesis we can now run floorplan using following commands
 
@@ -518,7 +513,7 @@ expand
 
 <img width="1283" height="764" alt="Screenshot 2025-08-12 115937" src="https://github.com/user-attachments/assets/662635a3-01d1-4cd9-8bf0-e3630c9ddd6a" />
 
-9. Do Post-Synthesis timing analysis with OpenSTA tool.
+8. Do Post-Synthesis timing analysis with OpenSTA tool.
 
 Since we are having 0 wns after improved timing run we are going to do timing analysis on initial run of synthesis which has lots of violations and no parameters were added to improve timing
 
@@ -574,7 +569,7 @@ sta pre_sta.conf
 
 The slack is positive
 
-11. Run Clock Tree Synthesis
+9. Run Clock Tree Synthesis
 
 ```
 # With placement done we are now ready to run CTS
@@ -585,7 +580,7 @@ run_cts
 
 <img width="1279" height="768" alt="Screenshot 2025-08-12 153407" src="https://github.com/user-attachments/assets/08c7719c-74b7-42d8-a40f-de6ffa3fe2dc" />
 
-12. Post-CTS OpenROAD timing analysis.
+10. Post-CTS OpenROAD timing analysis.
 
 Commands to be run in OpenLANE flow to do OpenROAD timing analysis with integrated OpenSTA in OpenROAD
 
