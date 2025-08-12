@@ -9,7 +9,6 @@ Day1 Tasks:
 
      Fliplop ratio = Number of D-Flipflops/Total number of cells
 
-
 1. Picorv32a design synthesis using OpenLANE
 
 Commands to invoke the OpenLANE flow to perform synthesis
@@ -39,7 +38,7 @@ run_synthesis
 
 <img width="1285" height="771" alt="Screenshot 2025-08-11 180732" src="https://github.com/user-attachments/assets/4b0200ba-3e83-4761-bb40-5a71d6bcf963" />
 
-Flipflop ratio calculation
+2. Flipflop ratio calculation
 
 <img width="1284" height="770" alt="Screenshot 2025-08-11 182000" src="https://github.com/user-attachments/assets/0adac9df-3a81-4ac2-b627-71903e46f2db" />
 
