@@ -632,11 +632,13 @@ report_checks -path_delay min_max -fields {slew trans net cap input_pins} -forma
 
 Day5 tasks:-
 
-  1.Perform generation of Power Distribution Network (PDN) and explore the PDN layout.
-  2.Perfrom detailed routing using TritonRoute.
-  3.Post-Route parasitic extraction using SPEF extractor.
-  4.Post-Route OpenSTA timing analysis with the extracted parasitics of the route.
+  1. Perform generation of Power Distribution Network (PDN) and explore the PDN layout.
+  2. Perfrom detailed routing using TritonRoute.
+  3. Post-Route parasitic extraction using SPEF extractor.
+  4. Post-Route OpenSTA timing analysis with the extracted parasitics of the route.
 
+
+1. Perform generation of Power Distribution Network (PDN) and explore the PDN layout.
 ```
 # Now that CTS is done we can do power distribution network
 gen_pdn
