@@ -279,7 +279,7 @@ Day4 tasks:-
   9. Perform Clock Tree Synthesis
   10. Post-CTS OpenROAD timing analysis.
 
-1. Fix up small DRC errors and verify the design is ready to be inserted into our flow:
+1.Fix up small DRC errors and verify the design is ready to be inserted into our flow:
 
 Conditions to be verified before moving forward with custom designed cell layout:
 
