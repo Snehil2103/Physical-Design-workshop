@@ -46,3 +46,41 @@ exit
 
 <img width="1285" height="771" alt="Screenshot 2025-08-11 180732" src="https://github.com/user-attachments/assets/4b0200ba-3e83-4761-bb40-5a71d6bcf963" />
 
+Flipflop ratio calculation
+
+<img width="1284" height="770" alt="Screenshot 2025-08-11 182000" src="https://github.com/user-attachments/assets/0adac9df-3a81-4ac2-b627-71903e46f2db" />
+
+<img width="1280" height="765" alt="Screenshot 2025-08-11 181852" src="https://github.com/user-attachments/assets/b488e42a-bcb5-4f94-b591-77a50ea1a98b" />
+
+Ratio = 1613/14876 = 0.10
+
+Percentage = Ratio * 100 = 10%
+
+
+# Day2: Good floorplan vs Bad floorplan and Introduction to library cells
+
+Section 2 tasks:-
+
+  1.Run 'picorv32a' design floorplan using OpenLANE flow and generate necessary outputs.
+  2.Calculate the die area in microns from the values in floorplan def.
+  3.Load generated floorplan def in magic tool and explore the floorplan.
+  4.Run 'picorv32a' design congestion aware placement using OpenLANE flow and generate necessary outputs.
+  5.Load generated placement def in magic tool and explore the placement.
+
+    Area of die = Die width * Die height (in microns)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
