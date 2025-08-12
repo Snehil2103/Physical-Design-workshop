@@ -144,7 +144,7 @@ Day3 Tasks:
   4. Post-layout NGSpice simulations.
   5. Find problem in the DRC section of the old magic tech file for the skywater process and fix them.
 
-1. Load the custom inverter layout in magic and explore.
+1.Load the custom inverter layout in magic and explore.
 
 
 ```
@@ -632,13 +632,13 @@ report_checks -path_delay min_max -fields {slew trans net cap input_pins} -forma
 
 Day5 tasks:-
 
-  1. Perform generation of Power Distribution Network (PDN) and explore the PDN layout.
-  2. Perfrom detailed routing using TritonRoute.
-  3. Post-Route parasitic extraction using SPEF extractor.
-  4. Post-Route OpenSTA timing analysis with the extracted parasitics of the route.
+   1. Perform generation of Power Distribution Network (PDN) and explore the PDN layout.
+   2. Perfrom detailed routing using TritonRoute.
+   3. Post-Route parasitic extraction using SPEF extractor.
+   4. Post-Route OpenSTA timing analysis with the extracted parasitics of the route.
 
 
-1. Perform generation of Power Distribution Network (PDN) and explore the PDN layout.
+1.Perform generation of Power Distribution Network (PDN) and explore the PDN layout.
 ```
 # Now that CTS is done we can do power distribution network
 gen_pdn
