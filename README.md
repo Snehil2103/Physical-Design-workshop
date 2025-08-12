@@ -136,5 +136,80 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 <img width="1280" height="764" alt="Screenshot 2025-08-11 191124" src="https://github.com/user-attachments/assets/69a408ad-2332-4851-a710-ca57ab5970dc" />
 
 
+# Day3: Design library cell using Magic Layout and ngspice characterization
+
+Day3 Tasks:
+
+  1. Load the custom inverter layout in magic and explore.
+  2. Spice extraction of inverter in magic.
+  3. Editing the spice model file for analysis through simulation.
+  4. Post-layout NGSpice simulations.
+  5. Find problem in the DRC section of the old magic tech file for the skywater process and fix them.
+
+1. Load the custom inverter layout in magic and explore.
+
+
+```
+# Change directory to openlane
+cd Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign
+
+# Copy magic tech file to the repo directory for easy access
+cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech .
+
+# Command to open custom inverter layout in magic
+magic -T sky130A.tech sky130_inv.mag &
+```
+
+<img width="1280" height="766" alt="Screenshot 2025-08-11 192806" src="https://github.com/user-attachments/assets/8bda63c2-8124-4616-a250-a6bd671e7f3f" />
+
+2. Spice extraction of inverter in magic tkcon window
+
+Commands for spice extraction of the custom inverter layout to be used in tkcon window of magic
+
+```
+# Check current directory
+pwd
+
+# Extraction command to extract to .ext format
+extract all
+
+# Before converting ext to spice this command enable the parasitic extraction also
+ext2spice cthresh 0 rthresh 0
+
+# Converting to ext to spice
+ext2spice
+```
+
+<img width="1282" height="767" alt="Screenshot 2025-08-11 193321" src="https://github.com/user-attachments/assets/b12e2b90-ecc2-4671-85d8-b8cdaa5f559e" />
+
+Spice file:
+
+<img width="1281" height="772" alt="Screenshot 2025-08-11 193507" src="https://github.com/user-attachments/assets/21220501-d97b-4b7d-a5b4-67d38b078637" />
+
+3. Editing the spice model file for analysis through simulation
+
+Edited file: 
+
+<img width="1284" height="774" alt="Screenshot 2025-08-11 200459" src="https://github.com/user-attachments/assets/0e31d1e5-c7a8-4682-843f-b584c4ca093c" />
+
+4. Post layout NGSpice simulations
+
+Commands for ngspice simulation
+
+```
+# Command to directly load spice file for simulation to ngspice
+ngspice sky130_inv.spice
+
+# Now that we have entered ngspice with the simulation spice file loaded we just have to load the plot
+plot y vs time a
+```
+
+<img width="1287" height="773" alt="Screenshot 2025-08-11 201050" src="https://github.com/user-attachments/assets/ab69b660-721b-45fd-a245-a9f971e2667b" />
+
+<img width="1279" height="767" alt="Screenshot 2025-08-11 201127" src="https://github.com/user-attachments/assets/31de7a13-f2fe-4633-a9b4-4e58404d5ff3" />
+
+<img width="1280" height="768" alt="Screenshot 2025-08-11 205243" src="https://github.com/user-attachments/assets/f76a4bcf-29a6-4228-a4e0-dc2ffe26c8c6" />
+
+
 
 
