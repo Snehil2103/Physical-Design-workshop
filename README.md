@@ -758,6 +758,13 @@ exit
 
 <img width="992" height="503" alt="Screenshot 2025-08-12 164136" src="https://github.com/user-attachments/assets/41bffd53-ba70-46b9-9591-1455c8a3e1d7" />
 
+# Acknowledgement:
+
+   I extend my sincere gratitude to Kunal Ghosh and the VSD team for their guidance.
+
+ # Certificate of completion: 
+
+ <img width="1404" height="983" alt="Screenshot 2025-08-21 225127" src="https://github.com/user-attachments/assets/e3a0b420-6db6-45eb-87b8-c0c48011b926" />
 
 
 
